@@ -9,6 +9,10 @@ SRC_URI[sha256sum] = "128b467c4ed03264c187405172a4e83049342cc8cc2f655f53a2d0ee9d
 
 S = "${WORKDIR}/${PN}-${PV}"
 
+# Give an extra parameter to the configure script
+EXTRA_OECONF += "--enable-ncurses"
+
+# Include the autotools specific build functionality
 inherit autotools
 
 # Add packages for python wrapper and binary tools
@@ -17,3 +21,6 @@ PACKAGE_BEFORE_PN += "${PN}-tools"
 
 FILES_${PN}-python = "${libdir}/python2.7"
 FILES_${PN}-tools = "${bindir}"
+
+# Declare build dependency on ncurses
+DEPENDS += "ncurses"
