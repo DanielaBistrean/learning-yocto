@@ -13,7 +13,7 @@ S = "${WORKDIR}/${PN}-${PV}"
 EXTRA_OECONF += "--enable-ncurses"
 
 # Include the autotools specific build functionality
-inherit autotools
+inherit autotools pkgconfig
 
 # Add packages for python wrapper and binary tools
 PACKAGES += "${PN}-python"
